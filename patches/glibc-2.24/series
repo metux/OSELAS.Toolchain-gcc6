@@ -1,0 +1,9 @@
+0001-add-install-lib-all-target.patch
+0002-don-t-regen-docs-if-perl-is-not-found.patch
+0003-resolv-dynamic.patch
+0004-optimized-string-functions-for-NEON-from-Linaro.patch
+0005-add-libc_hidden_builtin_def-for-all-cortex-functions.patch
+0006-Hack-around-mips-args-to-host-gcc.patch
+0007-ARM-fix-PI-futex-breakge-glibc-bug-18463.patch
+0008-stdlib-setenv.c-add-brackets-around-ambigious-if-els.patch
+0009-nis-nis_call.c-add-brackets-around-ambigious-if-else.patch
