@@ -59,6 +59,7 @@ CROSS_GCC_FIRST_CONF_OPT	 = \
 	--disable-libgomp \
 	--disable-libquadmath \
 	--disable-libatomic \
+	--disable-libmpx \
 	--with-system-zlib
 
 # ----------------------------------------------------------------------------

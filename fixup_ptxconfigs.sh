@@ -305,6 +305,9 @@ fixup()
 	5.*)
 	    PTXCONF_CROSS_GCC_50=y
 	    ;;
+	6.*)
+	    PTXCONF_CROSS_GCC_60=y
+	    ;;
 	*)
 	    echo "unknown CROSS_GCC_VERSION: ${PTXCONF_CROSS_GCC_VERSION}"
 	    exit 1
