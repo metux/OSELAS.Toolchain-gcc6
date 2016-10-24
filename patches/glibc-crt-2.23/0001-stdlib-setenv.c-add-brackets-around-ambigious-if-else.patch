@@ -1,0 +1,38 @@
+From 52dd8f497b8fb7159c0770594fc145cb94523690 Mon Sep 17 00:00:00 2001
+From: "Enrico Weigelt, metux IT consult" <enrico.weigelt@gr13.net>
+Date: Fri, 21 Oct 2016 17:55:39 +0200
+Subject: [PATCH] stdlib: setenv.c: add brackets around ambigious if/else
+
+---
+ stdlib/setenv.c                                    |  6 +++-
+ 2 files changed, 40 insertions(+), 1 deletion(-)
+ create mode 100644 0001-stdlib-setenv.c-add-brackets-around-ambigious-if-else.patch
+
+diff --git a/stdlib/setenv.c b/stdlib/setenv.c
+index da61ee0..c442c54 100644
+--- a/stdlib/setenv.c
++++ b/stdlib/setenv.c
+@@ -276,8 +276,10 @@ unsetenv (const char *name)
+   LOCK;
+ 
+   ep = __environ;
+-  if (ep != NULL)
++  if ((ep != NULL))
++  {
+     while (*ep != NULL)
++    {
+       if (!strncmp (*ep, name, len) && (*ep)[len] == '=')
+ 	{
+ 	  /* Found it.  Remove this pointer by moving later ones back.  */
+@@ -290,6 +292,8 @@ unsetenv (const char *name)
+ 	}
+       else
+ 	++ep;
++    }
++  }
+ 
+   UNLOCK;
+ 
+-- 
+2.6.4.442.g545299f
+

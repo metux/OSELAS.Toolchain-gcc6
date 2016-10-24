@@ -19,3 +19,5 @@
 #tag:open-glibc-bugs --start-number 500
 0500-ARM-fix-PI-futex-breakge-glibc-bug-18463.patch
 # 0864aa35a84bed6790ecc904cfd6bb4c  - git-ptx-patches magic
+0601-stdlib-setenv.c-add-brackets-around-ambigious-if-else.patch
+0602-nis-nis_call.c-add-brackets-around-ambigious-if-else.patch

@@ -1,0 +1,38 @@
+From 4bdfce299a8b8f5e27915ad3fd149bc766c74389 Mon Sep 17 00:00:00 2001
+From: "Enrico Weigelt, metux IT consult" <enrico.weigelt@gr13.net>
+Date: Fri, 21 Oct 2016 19:49:43 +0200
+Subject: [PATCH] nis: nis_call.c: add brackets around ambigious if/else
+
+---
+ nis/nis_call.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/nis/nis_call.c b/nis/nis_call.c
+index 3fa37e4..3db8429 100644
+--- a/nis/nis_call.c
++++ b/nis/nis_call.c
+@@ -679,8 +679,10 @@ nis_server_cache_add (const_nis_name name, int search_parent,
+ 
+   /* Choose which entry should be evicted from the cache.  */
+   loc = &nis_server_cache[0];
+-  if (*loc != NULL)
++  if ((*loc != NULL))
++  {
+     for (i = 1; i < 16; ++i)
++    {
+       if (nis_server_cache[i] == NULL)
+ 	{
+ 	  loc = &nis_server_cache[i];
+@@ -690,6 +692,9 @@ nis_server_cache_add (const_nis_name name, int search_parent,
+ 	       || ((*loc)->uses == nis_server_cache[i]->uses
+ 		   && (*loc)->expires > nis_server_cache[i]->expires))
+ 	loc = &nis_server_cache[i];
++    }
++  }
++
+   old = *loc;
+   *loc = new;
+ 
+-- 
+2.6.4.442.g545299f
+
