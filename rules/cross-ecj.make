@@ -51,6 +51,8 @@ $(CROSS_ECJ_SOURCE):
 
 $(STATEDIR)/cross-ecj.extract:
 	@$(call targetinfo)
+	echo "creating builddir: $(CROSS_ECJ_DIR)"
+	mkdir -p $(CROSS_ECJ_DIR)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
